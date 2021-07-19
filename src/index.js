@@ -18,7 +18,7 @@ refs.searchBoxEl.addEventListener('input', debounce(searchBoxListener, DEBOUNCE_
 function searchBoxListener(e) {
   const searchText = e.target.value;
   if (searchText.length === 0) {
-    clearCountriesListEl();
+    setCountriesListEl('');
   } else {
     fetchCountries(searchText)
       .then(countries => {
@@ -40,7 +40,4 @@ function searchBoxListener(e) {
 
 function setCountriesListEl(data) {
   refs.countryListEl.innerHTML = data;
-}
-function clearCountriesListEl() {
-  refs.countryListEl.innerHTML = '';
 }
